@@ -1,11 +1,5 @@
 # Erdos Problem 1152: almost everywhere divergence, polynomial interpolation, sublinear excess degree
 
-**Almost everywhere divergence of polynomial interpolation with sublinear excess degree**
-
-Qiyuan (Alex) Gu, University of Chicago. Preprint, version 0.3.
-
-[Read the paper (PDF)](PROOF.pdf) · [LaTeX source](PROOF.tex) · [Raw LaTeX](https://raw.githubusercontent.com/FireflySentinel/erdos-1152/main/PROOF.tex)
-
 This manuscript presents a proof of the divergence assertion in [Erdős Problem #1152](https://www.erdosproblems.com/1152), with the stronger conclusion of almost everywhere unboundedness.
 
 ## Main result
