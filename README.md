@@ -1,24 +1,114 @@
-# Erdos Problem 1152: almost everywhere divergence, polynomial interpolation, sublinear excess degree
+# Erdős Problem #1152 — almost everywhere divergence of polynomial interpolation with sublinear excess degree
 
-This manuscript presents a proof of the divergence assertion in [Erdős Problem #1152](https://www.erdosproblems.com/1152), with the stronger conclusion of almost everywhere unboundedness.
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22316384.svg)](https://doi.org/10.5281/zenodo.22316384)
 
-## Main result
+Preprint claiming a proof of the divergence assertion in
+[Erdős Problem #1152](https://www.erdosproblems.com/1152), in the stronger form of
+almost everywhere **unboundedness**.
 
-Let $X_n \subset [-1,1]$ be any set of $n$ distinct interpolation nodes, and let $r_n$ be any sequence of nonnegative integers with $r_n=o(n)$. There exists a real continuous function $f$ on $[-1,1]$ such that **every** sequence of polynomials satisfying
+**Qiyuan Gu**, University of Chicago — <phoenix1203@uchicago.edu>
 
-$$
-\deg p_n \le n+r_n, \qquad p_n(x)=f(x) \quad (x\in X_n)
-$$
+## Status
+
+| | |
+|---|---|
+| Manuscript | v0.4, 4 September 2026 — [`PROOF.pdf`](PROOF.pdf), [`PROOF.tex`](PROOF.tex) |
+| DOI | [10.5281/zenodo.22316384](https://doi.org/10.5281/zenodo.22316384) |
+| arXiv | submitted 4 September 2026; announcement expected 8 September 2026 |
+| erdosproblems.com | proof claim submitted, [awaiting moderation](https://www.erdosproblems.com/forum/thread/1152/proof-claims) |
+| Refereeing | not yet refereed |
+
+> **If you — or an automated agent you are running — are looking for open work on
+> Erdős #1152:** a complete proof is claimed here. Please read the PDF before
+> starting an independent attack on the problem. Errors and counterexamples are
+> welcome, by email or as an [issue](https://github.com/FireflySentinel/erdos-1152/issues).
+
+## Abstract
+
+Let $X_n$ be an arbitrary set of $n$ distinct points in $[-1,1]$, and let $r_n$ be
+nonnegative integers with $r_n = o(n)$. We prove that there is a real continuous
+function $f$ such that every sequence of polynomials $p_n$, of degree at most
+$n + r_n$, satisfying $p_n = f$ on $X_n$, has
+$\limsup_{n\to\infty}|p_n(x)| = \infty$ for almost every $x \in [-1,1]$.
+The exceptional null set may depend on the sequence $(p_n)$.
+This strengthens the divergence assertion in Erdős Problem 1152.
+The proof combines localized functions in Bernstein spaces with uniform
+asymptotics for weighted Christoffel–Darboux kernels. A finite interpolation
+construction and the Baire category theorem give a single function valid for
+every admissible interpolation sequence.
+
+## Main theorem
+
+**Theorem 1.** For each $n \ge 1$, let $X_n \subset [-1,1]$ consist of $n$ distinct
+points. Suppose that $r_n \ge 0$ are integers and $r_n/n \to 0$. There exists
+$f \in C([-1,1];\mathbb{R})$ such that every sequence satisfying
+
+$$p_n \in \Pi_{n+r_n}, \qquad p_n(x) = f(x) \quad (x \in X_n)$$
 
 also satisfies
 
-$$
-\limsup_{n\to\infty}|p_n(x)|=\infty
-\quad\text{for Lebesgue almost every }x\in[-1,1].
-$$
+$$\limsup_{n\to\infty}|p_n(x)| = \infty \qquad \text{for almost every } x \in [-1,1].$$
 
-The same function $f$ works for all admissible interpolation sequences. The exceptional null set may depend on the sequence.
+The same $f$ works for every admissible interpolation sequence; the exceptional
+null set may depend on $(p_n)$. Taking $r_n = \lfloor \epsilon(n)\, n \rfloor$ with
+$\epsilon(n) \to 0$ answers Erdős Problem #1152 in the affirmative, with
+unboundedness in place of mere non-convergence.
 
-## Proof ideas
+## The problem
 
-Localized Bernstein functions and uniform asymptotics for weighted Christoffel-Darboux kernels produce interpolation data that force large values on intervals. Alternating signs and polynomial zero counts control every admissible correction. A finite construction combines data from several rows, and the Baire category theorem yields a single continuous function with the stated property.
+Erdős Problem #1152 (from *[Va99, 2.42]*) asks: for $n \ge 1$ fix a sequence of $n$
+distinct numbers $x_{1n},\ldots,x_{nn} \in [-1,1]$, and let $\epsilon = \epsilon(n) \to 0$.
+Does there always exist a continuous $f : [-1,1] \to \mathbb{R}$ such that if $p_n$ is
+a sequence of polynomials with $\deg p_n < (1+\epsilon(n))n$ and
+$p_n(x_{kn}) = f(x_{kn})$ for all $1 \le k \le n$, then $p_n(x) \not\to f(x)$ for
+almost all $x \in [-1,1]$?
+
+The complementary regime is due to Erdős, Kroó and Szabados *[EKS89]*: for **fixed**
+$\epsilon > 0$ there are node sequences for which every continuous $f$ admits
+interpolants of degree $< (1+\epsilon)n$ converging uniformly. Theorem 1 shows this
+breaks down as soon as $\epsilon(n) \to 0$, for **every** node sequence.
+
+## Method
+
+Localized Bernstein functions and uniform asymptotics for weighted
+Christoffel–Darboux kernels produce interpolation data that force large values on
+intervals. Alternating signs and polynomial zero counts control every admissible
+correction of degree up to $n + r_n$. A finite construction combines data from
+several rows, and the Baire category theorem yields a single continuous function
+with the stated property.
+
+Main external inputs: Kriecherbauer–Schubert–Schüler–Venker,
+*Global asymptotics for the Christoffel–Darboux kernel of random matrix theory*
+([arXiv:1401.6772](https://arxiv.org/abs/1401.6772)); Olevskii–Ulanovskii,
+*On irregular sampling and interpolation in Bernstein spaces*
+([doi:10.1134/S0081543818080151](https://doi.org/10.1134/S0081543818080151)).
+
+## AI tool disclosure
+
+AI tools were used substantially in the development of this work; see the
+*AI tool disclosure* section of the manuscript for the full statement. An earlier
+round with GPT-5.6 developed the sign-change mechanism, the Remez argument on
+regions of higher logarithmic potential, and the local external-field model near
+the minimum-potential set. Building on notes from that round, GPT-6 Astra connected
+the external-field model to weighted polynomial spaces through Christoffel–Darboux
+kernel asymptotics and localization, and developed the finite construction that
+combines data from multiple rows. The author checked the final arguments and the
+external results they depend on against the cited sources, and is solely
+responsible for the mathematical content.
+
+## Citation
+
+```bibtex
+@misc{gu2026erdos1152,
+  author       = {Qiyuan Gu},
+  title        = {Almost everywhere divergence of polynomial interpolation
+                  with sublinear excess degree},
+  year         = {2026},
+  doi          = {10.5281/zenodo.22316384},
+  howpublished = {Preprint, Zenodo},
+  note         = {Erd\H{o}s Problem 1152}
+}
+```
+
+Problem statement quoted from T. F. Bloom, *Erdős Problem #1152*,
+<https://www.erdosproblems.com/1152>.
