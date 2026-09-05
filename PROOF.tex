@@ -43,11 +43,14 @@ sequence of polynomials \(p_n\), of degree at most \(n+r_n\), satisfying
 \(p_n=f\) on \(X_n\), has
 \(\limsup_{n\to\infty}|p_n(x)|=\infty\) for almost every \(x\in[-1,1]\).
 The exceptional null set may depend on the sequence \((p_n)\).
-This strengthens the divergence assertion in Erd\H{o}s Problem 1152.
-The proof combines localized functions in Bernstein spaces with uniform
-asymptotics for weighted Christoffel--Darboux kernels. A finite
-interpolation construction and the Baire category theorem give a single
-function valid for every admissible interpolation sequence.
+This extends the Erd\H{o}s--V\'ertesi theorem on almost-everywhere
+unboundedness of Lagrange interpolation for arbitrary node arrays to
+nonunique interpolation with \(o(n)\) excess degree, and in particular
+answers Erd\H{o}s Problem 1152 in a stronger form. The proof combines
+localized functions in Bernstein spaces with uniform asymptotics for
+weighted Christoffel--Darboux kernels. A finite interpolation construction
+and the Baire category theorem give a single function valid for every
+admissible interpolation sequence.
 \end{abstract}
 
 \section{Introduction}
@@ -71,13 +74,25 @@ also satisfies
 \end{equation}
 \end{theorem}
 
-This theorem strengthens the divergence assertion in
-Erd\H{o}s Problem 1152 \cite{Erdos1152}, which asks whether the
-interpolants must fail to converge to \(f\) almost everywhere.
-The exceptional null set in \eqref{eq:divergence} may depend on the
-sequence \((p_n)\). The same conclusion holds for polynomials with
-complex coefficients, by applying the real statement to their real
-parts.
+Erd\H{o}s and V\'ertesi proved that for every triangular array of
+distinct nodes in \([-1,1]\), there is a continuous function whose
+Lagrange interpolation polynomials are unbounded almost everywhere
+\cite{EV80,EV81}. Theorem~\ref{thm:main} extends this arbitrary-node
+result to nonunique interpolation: degrees up to \(n+r_n\), with
+\(r_n=o(n)\), are allowed, and the same continuous function works for
+every admissible sequence of interpolants. This also answers
+Erd\H{o}s Problem 1152 \cite{Erdos1152} in the stronger form
+\eqref{eq:divergence}. The exceptional null set may depend on the
+sequence \((p_n)\).
+
+The contrast with fixed positive excess degree is provided by Erd\H{o}s,
+Kro\'o, and Szabados \cite{EKS89}: for suitable node arrays and each fixed
+\(\varepsilon>0\), every continuous function admits uniformly convergent
+interpolants of degree at most \(\lfloor(1+\varepsilon)n\rfloor\).
+For background on divergence phenomena in Lagrange interpolation, see
+Szabados and V\'ertesi \cite{SV90}. The same conclusion as
+Theorem~\ref{thm:main} holds for polynomials with complex coefficients,
+by applying the real statement to their real parts.
 
 The two analytic ingredients are the construction in
 Olevskii and Ulanovskii \cite[Lemma 4.1]{OU} and the uniform kernel
@@ -1231,11 +1246,36 @@ mathematical content of the paper.
 
 \begin{thebibliography}{9}
 
+\bibitem{EV80}
+P.~Erd\H{o}s and P.~V\'ertesi,
+On the almost everywhere divergence of Lagrange interpolatory polynomials
+for arbitrary system of nodes,
+\emph{Acta Math. Acad. Sci. Hungar.} \textbf{36} (1980), 71--89.
+\url{https://www.renyi.hu/~p_erdos/1981-03.pdf}.
+
+\bibitem{EV81}
+P.~Erd\H{o}s and P.~V\'ertesi,
+Correction of some misprints in our paper ``On the almost everywhere
+divergence of Lagrange interpolatory polynomials for arbitrary system of
+nodes'',
+\emph{Acta Math. Acad. Sci. Hungar.} \textbf{38} (1981), 263.
+
+\bibitem{EKS89}
+P.~Erd\H{o}s, A.~Kro\'o, and J.~Szabados,
+On convergent interpolatory polynomials,
+\emph{J. Approx. Theory} \textbf{58} (1989), 232--241.
+\url{https://www.renyi.hu/~p_erdos/1989-16.pdf}.
+
 \bibitem{Erdos1152}
 T.~F. Bloom,
 \emph{Erd\H{o}s Problem \#1152},
 \url{https://www.erdosproblems.com/1152}.
 Accessed 4 September 2026.
+
+\bibitem{SV90}
+J.~Szabados and P.~V\'ertesi,
+\emph{Interpolation of Functions},
+World Scientific, Singapore, 1990.
 
 \bibitem{KSSV}
 T.~Kriecherbauer, K.~Schubert, K.~Sch\"uler, and M.~Venker,
