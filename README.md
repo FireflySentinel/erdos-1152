@@ -1,6 +1,6 @@
 # Erdős Problem #1152 — almost everywhere divergence of polynomial interpolation with sublinear excess degree
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22316384.svg)](https://doi.org/10.5281/zenodo.22316384)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22312935.svg)](https://doi.org/10.5281/zenodo.22312935)
 
 Preprint claiming a proof of the divergence assertion in
 [Erdős Problem #1152](https://www.erdosproblems.com/1152), in the stronger form of
@@ -12,8 +12,8 @@ almost everywhere **unboundedness**.
 
 | | |
 |---|---|
-| Manuscript | v0.4, 4 September 2026 — [`PROOF.pdf`](PROOF.pdf), [`PROOF.tex`](PROOF.tex) |
-| DOI | [10.5281/zenodo.22316384](https://doi.org/10.5281/zenodo.22316384) |
+| Manuscript | v5, 16 pages, 5 September 2026 — [`PROOF.pdf`](PROOF.pdf), [`PROOF.tex`](PROOF.tex) |
+| DOI | [10.5281/zenodo.22312935](https://doi.org/10.5281/zenodo.22312935) (always the latest version; v5 is [10.5281/zenodo.22333142](https://doi.org/10.5281/zenodo.22333142)) |
 | arXiv | submitted 4 September 2026; announcement expected 8 September 2026 |
 | erdosproblems.com | proof claim submitted, [awaiting moderation](https://www.erdosproblems.com/forum/thread/1152/proof-claims) |
 | Refereeing | not yet refereed |
@@ -31,8 +31,10 @@ function $f$ such that every sequence of polynomials $p_n$, of degree at most
 $n + r_n$, satisfying $p_n = f$ on $X_n$, has
 $\limsup_{n\to\infty}|p_n(x)| = \infty$ for almost every $x \in [-1,1]$.
 The exceptional null set may depend on the sequence $(p_n)$.
-This strengthens the divergence assertion in Erdős Problem 1152.
-The proof combines localized functions in Bernstein spaces with uniform
+This extends the Erdős–Vértesi theorem on almost-everywhere unboundedness of
+Lagrange interpolation for arbitrary node arrays to nonunique interpolation with
+$o(n)$ excess degree, and in particular answers Erdős Problem 1152 in a stronger
+form. The proof combines localized functions in Bernstein spaces with uniform
 asymptotics for weighted Christoffel–Darboux kernels. A finite interpolation
 construction and the Baire category theorem give a single function valid for
 every admissible interpolation sequence.
@@ -104,7 +106,7 @@ responsible for the mathematical content.
   title        = {Almost everywhere divergence of polynomial interpolation
                   with sublinear excess degree},
   year         = {2026},
-  doi          = {10.5281/zenodo.22316384},
+  doi          = {10.5281/zenodo.22312935},
   howpublished = {Preprint, Zenodo},
   note         = {Erd\H{o}s Problem 1152}
 }
