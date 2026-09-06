@@ -2,7 +2,7 @@
 
 This project formalizes the polynomial sign argument, elementary analytic
 identities from Lemma 4, and the finite construction and category argument in
-the [manuscript](PROOF.tex). The main Lean theorem
+the [manuscript](paper/PROOF.tex). The main Lean theorem
 deduces almost everywhere unboundedness from the local amplification conclusion
 of Section 6. The analytic derivation of that conclusion is outside the current
 formalization.
