@@ -6,19 +6,15 @@ Preprint claiming a proof of the divergence assertion in
 [Erdős Problem #1152](https://www.erdosproblems.com/1152), in the stronger form of almost
 everywhere unboundedness.
 
-**Qiyuan Gu**, University of Chicago, <phoenix1203@uchicago.edu>
+**Qiyuan Gu**, University of Chicago
 
-Comments and corrections: email or issue.
+[Preprint PDF](PROOF.pdf) · [LaTeX source](PROOF.tex)
 
-## Status
+Published version: [v5](https://doi.org/10.5281/zenodo.22333142), 5 September 2026.
+Submitted to arXiv on 4 September 2026; announcement expected 8 September 2026.
 
-| | |
-|---|---|
-| Manuscript | v5, 16 pages, 5 September 2026: [`PROOF.pdf`](PROOF.pdf), [`PROOF.tex`](PROOF.tex) |
-| DOI | [10.5281/zenodo.22312935](https://doi.org/10.5281/zenodo.22312935) (always the latest version; v5 is [10.5281/zenodo.22333142](https://doi.org/10.5281/zenodo.22333142)) |
-| arXiv | submitted 4 September 2026; announcement expected 8 September 2026 |
-| erdosproblems.com | listed open as of 5 September 2026; [proof claim posted](https://www.erdosproblems.com/forum/thread/1152/proof-claims) |
-| Refereeing | not yet refereed |
+Comments and corrections: [email](mailto:phoenix1203@uchicago.edu) or
+[issue](https://github.com/FireflySentinel/erdos-1152/issues).
 
 ## Abstract
 
