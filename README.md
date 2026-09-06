@@ -12,8 +12,6 @@ everywhere unboundedness.
 
 Published version: [v6](https://doi.org/10.5281/zenodo.22545744), 6 September 2026, manuscript and Lean sources.
 
-Comments and corrections: [email](mailto:phoenix1203@uchicago.edu) or
-[issue](https://github.com/FireflySentinel/erdos-1152/issues).
 
 ## Abstract
 
@@ -98,20 +96,3 @@ sources, and is solely responsible for the mathematical content.
 
 The Lean formalization and the finite-perturbation category argument in
 Section 8 were developed with OpenAI Codex (GPT-6).
-
-## Citation
-
-```bibtex
-@misc{gu2026erdos1152,
-  author       = {Qiyuan Gu},
-  title        = {Almost everywhere divergence of polynomial interpolation
-                  with sublinear excess degree},
-  year         = {2026},
-  doi          = {10.5281/zenodo.22312935},
-  howpublished = {Preprint, Zenodo},
-  note         = {Erd\H{o}s Problem 1152}
-}
-```
-
-Problem statement quoted from T. F. Bloom, *Erdős Problem #1152*,
-<https://www.erdosproblems.com/1152>.
