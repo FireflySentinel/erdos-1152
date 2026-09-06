@@ -143,8 +143,10 @@ which \(g\ge c'\log\rho\), with an absolute constant \(c'>0\).
 \end{lemma}
 
 \begin{proof}
-Use the construction of \cite[Lemma 4.1]{OU}, replacing its initial
-bandwidth \(\pi-4R_0^{-1/9}\) by \(\pi-8R_0^{-1/9}\).
+Adapt the construction of \cite[Lemma~4.1, pp.~184--185]{OU} by reducing
+its initial bandwidth from \(\pi-4R_0^{-1/9}\) to
+\(\pi-8R_0^{-1/9}\). The fourth-power sinc factor below then leaves
+the required margin \(4\gamma\) below \(\pi\).
 Put \(w=\pi-8\gamma\) and
 \[
  \Lambda=\Gamma+2R_0\Z.
@@ -156,9 +158,9 @@ common value as \(D\). Then
  D\le\frac{2\rho+1}{2R_0}\le1+CR_0^{-1/2}.
 \]
 Write \(K_s(\Lambda,B_w)\) for the sampling constant. If \(\Lambda\)
-is a sampling set for \(B_w\), then \cite[Theorem C(i)]{OU} gives
+is a sampling set for \(B_w\), then \cite[Theorem~C(i), p.~179]{OU} gives
 \(D>w/\pi\). Hence \(D\Lambda\) has density one and
-\cite[Theorem 1(i)]{OU} gives
+\cite[Theorem~1(i), p.~180]{OU} gives
 \[
  K_s(\Lambda,B_w)
  =K_s(D\Lambda,B_{w/D})
@@ -177,8 +179,11 @@ whose norm is a fixed constant times \(\log R_0\).
 Choose a point at which its absolute value is at least half this norm.
 A translation by a multiple of \(2R_0\) places this point at
 \(u_0\in[-R_0,R_0]\), without changing the bound on \(\Lambda\).
-Multiplying by a constant of modulus one and taking the real part
-gives a function real on \(\R\) and positive at \(u_0\).
+Multiply by a constant of modulus one so that \(g_1(u_0)>0\), then
+replace \(g_1(z)\) by
+\((g_1(z)+\overline{g_1(\bar z)})/2\). This entire function is real on
+\(\R\), retains the value at \(u_0\), and satisfies the same bandwidth
+and upper bounds.
 
 Multiply this function by
 \[
