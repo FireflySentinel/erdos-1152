@@ -27,29 +27,12 @@ formalization.
 
 ## Proof correspondence
 
-| Manuscript | Lean declaration | Content |
-|---|---|---|
-| Lemma 3 | [`alternating_interval_bound`](Erdos1152/Intervals.lean) | Whole intervals remaining above the threshold after a degree-bounded correction |
-| Section 3, external field | [`externalField_derivative`](Erdos1152/ExternalField.lean), [`artanh_derivative`](Erdos1152/ExternalField.lean) | First and second derivatives of `Q` |
-| Uniform logarithmic potential | [`uniformPotential_eq`](Erdos1152/ExternalField.lean) | `V_{du/2} = Q - 1` |
-| Lemma 4, density | [`equilibriumDensity_time_derivative`](Erdos1152/EquilibriumDensity.lean), [`equilibriumDensity_mass`](Erdos1152/DensityMass.lean) | Support, time derivative and exact mass |
-| Lemma 4, scalar integral | [`cauchy_integral_eq_artanh`](Erdos1152/CauchyIntegral.lean), [`cauchy_integral_lt_artanh`](Erdos1152/CauchyComparison.lean) | Endpoint integral and strict truncated comparison |
-| Polynomial corrections | [`interpolation_correction`](Erdos1152/Interpolation.lean) | `p = b + P_Y q`, with the degree bound on `q` |
-| Removing assigned nodes | [`degree_budget_after_removal`](Erdos1152/Interpolation.lean), [`LocalIntervalData.extend`](Erdos1152/LocalData.lean) | Exact degree budget and preservation of earlier node values |
-| Proposition 9, Vitali covering | [`finite_disjoint_intervals`](Erdos1152/Vitali.lean), [`intervalAmplification_of_localData`](Erdos1152/LocalToInterval.lean) | Finitely many disjoint local intervals and sequential row assignments |
-| Proposition 9, boundary bound | [`commonLowSet_boundary_cover`](Erdos1152/Boundary.lean) | At most `2 + 2 Σ d_j` boundary points |
-| Proposition 9, fixed partition | [`exists_uniform_partition`](Erdos1152/Partition.lean) | A grid chosen from the degree bounds, uniformly for all polynomial choices |
-| Proposition 9, batches | [`one_batch`](Erdos1152/Batches.lean), [`exists_small_low_stage`](Erdos1152/FiniteConstruction.lean) | Uniform contraction and finite iteration |
-| Proposition 9, continuous extension | [`FiniteData.exists_continuous_extension`](Erdos1152/FiniteData.lean) | A continuous extension with norm at most one |
-| Proposition 9 | [`finiteAmplification_of_localAmplification`](Erdos1152/Main.lean) | The complete finite construction from the stated local input |
-| Section 8, open sets and density | [`finiteObstruction_interior`](Erdos1152/FiniteObstruction.lean), [`dense_finiteObstruction_interior`](Erdos1152/Density.lean) | Stability under finite Lagrange corrections and polynomial approximation |
-| Section 8, Baire and almost everywhere conclusion | [`ae_limsup_eq_top_of_localAmplification`](Erdos1152/Main.lean) | One function for every admissible sequence |
-
-Section 8 now uses the finite Lagrange-operator bound in both the manuscript
-and Lean: an obstruction at height `H` persists at height `M < H` on an
-explicit ball of radius `(H - M) / C`. Polynomial approximation gives density.
-This removes the closed-set compactness argument from Section 8. Remez
-remains in Section 6. The finite data extension uses mathlib's Tietze theorem.
+| Manuscript | Lean source |
+|---|---|
+| Lemma 3, intervals surviving a degree-bounded correction | [Intervals.lean](Erdos1152/Intervals.lean), `alternating_interval_bound` |
+| Lemma 4, equilibrium density and the scalar integral | [EquilibriumDensity.lean](Erdos1152/EquilibriumDensity.lean), [CauchyIntegral.lean](Erdos1152/CauchyIntegral.lean) |
+| Proposition 9, the finite construction | [Main.lean](Erdos1152/Main.lean), `finiteAmplification_of_localAmplification` |
+| Section 8, Baire and the almost-everywhere conclusion | [Main.lean](Erdos1152/Main.lean), `ae_limsup_eq_top_of_localAmplification` |
 
 ## Use of generative AI
 
