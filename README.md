@@ -4,8 +4,6 @@ Preprint claiming a proof of the divergence assertion in
 [Erdős Problem #1152](https://www.erdosproblems.com/1152), in the stronger form of almost
 everywhere unboundedness.
 
-[Preprint PDF](paper/PROOF.pdf) · [LaTeX source](paper/PROOF.tex)
-
 ## Build and check
 
 With [Elan](https://github.com/leanprover/elan) installed, run from the repository root:
