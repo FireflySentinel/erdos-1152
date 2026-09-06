@@ -8,7 +8,7 @@ everywhere unboundedness.
 
 **Qiyuan Gu**, University of Chicago
 
-[Preprint PDF](PROOF.pdf) · [LaTeX source](PROOF.tex)
+[Preprint PDF](PROOF.pdf) · [LaTeX source](PROOF.tex) · [Lean formalization](FORMALIZATION.md)
 
 Published version: [v5](https://doi.org/10.5281/zenodo.22333142), 5 September 2026.
 
@@ -77,6 +77,13 @@ Main external inputs: Kriecherbauer–Schubert–Schüler–Venker,
 *On irregular sampling and interpolation in Bernstein spaces*
 ([doi:10.1134/S0081543818080151](https://doi.org/10.1134/S0081543818080151)).
 
+## Lean formalization
+
+The Lean project verifies the sign-change argument and the finite construction
+and Baire argument, conditional on the local amplification conclusion of Section 6.
+The analytic derivation of that input remains in the manuscript. See
+[the exact statement and proof correspondence](FORMALIZATION.md).
+
 ## AI tool disclosure
 
 AI tools were used substantially in the development of this work. An earlier round with
@@ -87,6 +94,8 @@ weighted polynomial spaces through Christoffel–Darboux kernel asymptotics and 
 and developed the finite construction that combines data from multiple rows. The author
 checked the final arguments and the external results they depend on against the cited
 sources, and is solely responsible for the mathematical content.
+
+The Lean formalization was developed with OpenAI Codex (GPT-6).
 
 ## Citation
 
