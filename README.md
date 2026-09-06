@@ -10,7 +10,7 @@ everywhere unboundedness.
 
 [Preprint PDF](PROOF.pdf) · [LaTeX source](PROOF.tex) · [Lean formalization](FORMALIZATION.md)
 
-Published version: [v5](https://doi.org/10.5281/zenodo.22333142), 5 September 2026.
+Published version: [v6](https://doi.org/10.5281/zenodo.22545744), 6 September 2026, manuscript and Lean sources.
 
 Comments and corrections: [email](mailto:phoenix1203@uchicago.edu) or
 [issue](https://github.com/FireflySentinel/erdos-1152/issues).
