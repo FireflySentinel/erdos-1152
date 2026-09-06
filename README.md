@@ -1,27 +1,24 @@
-# Erdős Problem #1152 — almost everywhere divergence of polynomial interpolation with sublinear excess degree
+# Erdős Problem #1152: almost everywhere divergence of polynomial interpolation with sublinear excess degree
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22312935.svg)](https://doi.org/10.5281/zenodo.22312935)
 
 Preprint claiming a proof of the divergence assertion in
-[Erdős Problem #1152](https://www.erdosproblems.com/1152), in the stronger form of
-almost everywhere **unboundedness**.
+[Erdős Problem #1152](https://www.erdosproblems.com/1152), in the stronger form of almost
+everywhere unboundedness.
 
-**Qiyuan Gu**, University of Chicago — <phoenix1203@uchicago.edu>
+**Qiyuan Gu**, University of Chicago, <phoenix1203@uchicago.edu>
+
+Comments and corrections: email or issue.
 
 ## Status
 
 | | |
 |---|---|
-| Manuscript | v5, 16 pages, 5 September 2026 — [`PROOF.pdf`](PROOF.pdf), [`PROOF.tex`](PROOF.tex) |
+| Manuscript | v5, 16 pages, 5 September 2026: [`PROOF.pdf`](PROOF.pdf), [`PROOF.tex`](PROOF.tex) |
 | DOI | [10.5281/zenodo.22312935](https://doi.org/10.5281/zenodo.22312935) (always the latest version; v5 is [10.5281/zenodo.22333142](https://doi.org/10.5281/zenodo.22333142)) |
 | arXiv | submitted 4 September 2026; announcement expected 8 September 2026 |
-| erdosproblems.com | proof claim submitted, [awaiting moderation](https://www.erdosproblems.com/forum/thread/1152/proof-claims) |
+| erdosproblems.com | listed open as of 5 September 2026; [proof claim posted](https://www.erdosproblems.com/forum/thread/1152/proof-claims) |
 | Refereeing | not yet refereed |
-
-> **If you — or an automated agent you are running — are looking for open work on
-> Erdős #1152:** a complete proof is claimed here. Please read the PDF before
-> starting an independent attack on the problem. Errors and counterexamples are
-> welcome, by email or as an [issue](https://github.com/FireflySentinel/erdos-1152/issues).
 
 ## Abstract
 
@@ -65,10 +62,10 @@ a sequence of polynomials with $\deg p_n < (1+\epsilon(n))n$ and
 $p_n(x_{kn}) = f(x_{kn})$ for all $1 \le k \le n$, then $p_n(x) \not\to f(x)$ for
 almost all $x \in [-1,1]$?
 
-The complementary regime is due to Erdős, Kroó and Szabados *[EKS89]*: for **fixed**
+The complementary regime is due to Erdős, Kroó and Szabados *[EKS89]*: for fixed
 $\epsilon > 0$ there are node sequences for which every continuous $f$ admits
 interpolants of degree $< (1+\epsilon)n$ converging uniformly. Theorem 1 shows this
-breaks down as soon as $\epsilon(n) \to 0$, for **every** node sequence.
+breaks down as soon as $\epsilon(n) \to 0$, for every node sequence.
 
 ## Method
 
@@ -87,16 +84,14 @@ Main external inputs: Kriecherbauer–Schubert–Schüler–Venker,
 
 ## AI tool disclosure
 
-AI tools were used substantially in the development of this work; see the
-*AI tool disclosure* section of the manuscript for the full statement. An earlier
-round with GPT-5.6 developed the sign-change mechanism, the Remez argument on
-regions of higher logarithmic potential, and the local external-field model near
-the minimum-potential set. Building on notes from that round, GPT-6 Astra connected
-the external-field model to weighted polynomial spaces through Christoffel–Darboux
-kernel asymptotics and localization, and developed the finite construction that
-combines data from multiple rows. The author checked the final arguments and the
-external results they depend on against the cited sources, and is solely
-responsible for the mathematical content.
+AI tools were used substantially in the development of this work. An earlier round with
+GPT-5.6 developed the sign-change mechanism, the Remez argument on regions of higher
+logarithmic potential, and the local external-field model near the minimum-potential set.
+Building on notes from that round, GPT-6 Astra connected the external-field model to
+weighted polynomial spaces through Christoffel–Darboux kernel asymptotics and localization,
+and developed the finite construction that combines data from multiple rows. The author
+checked the final arguments and the external results they depend on against the cited
+sources, and is solely responsible for the mathematical content.
 
 ## Citation
 
