@@ -53,7 +53,7 @@ explicit ball of radius `(H - M) / C`. Polynomial approximation gives density.
 This removes the closed-set compactness argument from Section 8. Remez
 remains in Section 6. The finite data extension uses mathlib's Tietze theorem.
 
-## AI tool disclosure
+## Use of generative AI
 
 AI tools were used substantially in the development of this work. An earlier round with
 GPT-5.6 developed the sign-change mechanism, the Remez argument on regions of higher
