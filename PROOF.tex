@@ -265,7 +265,7 @@ elsewhere in \([-1,1]\).
 \end{lemma}
 
 \begin{proof}
-Differentiation with respect to \(t\) gives
+Differentiation with respect to \(t\), away from \(|u|=a_t\), gives
 \begin{equation}\label{eq:density-derivative}
  \partial_t\rho_t(u)=
  \frac{\one_{\{|u|<a_t\}}}{\pi\sqrt{a_t^2-u^2}}.
@@ -1120,109 +1120,87 @@ between consecutive nodes and by constants to the endpoints of
 \section{Proof of Theorem~\ref{thm:main}}\label{sec:baire}
 
 Work in the real Banach space \(C([-1,1];\R)\).
-For positive integers \(M,N,k\), let \(\mathcal F_{M,N,k}\)
-consist of the functions \(f\) for which there exist polynomials
+For \(H>0\) and positive integers \(N,k\), let \(\mathcal O_{H,N,k}\)
+consist of the functions \(f\) for which there is a finite set
+\(S\subset\{N,N+1,\ldots\}\) such that every choice
 \[
- p_n\in\Pi_{n+r_n},\qquad p_n=f\text{ on }X_n,
+ p_n\in\Pi_{n+r_n},\qquad p_n=f\text{ on }X_n\quad(n\in S),
 \]
-and a measurable set \(E\subset[-1,1]\), with \(|E|\ge1/k\),
-such that
+satisfies
 \[
- |p_n(x)|\le M\qquad(x\in E,\ n\ge N).
+ \left|\bigcap_{n\in S}\{x:|p_n(x)|\le H\}\right|<\frac1k.
 \]
 
-\begin{lemma}\label{lem:closed}
-Each set \(\mathcal F_{M,N,k}\) is closed.
+\begin{lemma}\label{lem:stability}
+If \(H>M>0\), then
+\(\mathcal O_{H,N,k}\subset\operatorname{int}\mathcal O_{M,N,k}\).
 \end{lemma}
 
 \begin{proof}
-Let \(f_j\in\mathcal F_{M,N,k}\) converge uniformly to \(f\).
-Choose corresponding polynomials \(p_{j,n}\) and sets \(E_j\).
-For each fixed \(n\ge N\), Remez's inequality bounds
-\(\norm{p_{j,n}}_\infty\) uniformly in \(j\), because
-\(|E_j|\ge1/k\) and \(|p_{j,n}|\le M\) there.
-Since the degree is fixed, this also bounds all coefficients.
-A diagonal subsequence therefore gives polynomials \(p_n\) with
+Let \(f\in\mathcal O_{H,N,k}\), with finite set \(S\) as above.
+For each \(n\in S\), let \(L_n\) be the Lagrange interpolation
+operator on \(X_n\), and write \(\ell_{n,\xi}\) for its fundamental
+polynomials. Put
 \[
- p_{j,n}\longrightarrow p_n
- \quad\text{uniformly on }[-1,1]
+ C=1+\sum_{n\in S}\sum_{\xi\in X_n}\norm{\ell_{n,\xi}}_\infty.
 \]
-for every \(n\ge N\).
-The interpolation conditions pass to the limit.
-
-Since \(L^1[-1,1]\) is separable, after a further subsequence,
+If \(\norm{g-f}_\infty<(H-M)/C\) and \(p_n\) interpolates \(g\),
+then \(q_n=p_n-L_n(g-f)\) interpolates \(f\) with the same degree
+bound. Moreover,
 \[
- \one_{E_j}\overset{*}{\rightharpoonup}w
- \quad\text{in }L^\infty[-1,1],
- \qquad 0\le w\le1,\qquad \int w\ge1/k.
+ \norm{L_n(g-f)}_\infty<H-M,
+ \qquad
+ \{|p_n|\le M\}\subset\{|q_n|\le H\}.
 \]
-For fixed \(n\ge N\) and \(\eta>0\), uniform convergence gives
-\(E_j\cap\{|p_n|\ge M+\eta\}=\varnothing\) for all sufficiently
-large \(j\). Weak-* convergence therefore gives \(w=0\) almost
-everywhere on this set. Letting \(\eta\downarrow0\), \(w\) is
-supported, up to a null set, on
-\[
- E=\bigcap_{n\ge N}\{|p_n|\le M\}.
-\]
-It follows that \(|E|\ge\int w\ge1/k\).
-For the finitely many indices \(n<N\), choose any interpolating
-polynomials of degree at most \(n-1\).
-Hence \(f\in\mathcal F_{M,N,k}\).
+The defining bound for \(f\) therefore gives the defining bound for
+\(g\) at height \(M\). Thus the ball of radius \((H-M)/C\) about
+\(f\) lies in \(\mathcal O_{M,N,k}\).
 \end{proof}
 
-\begin{lemma}\label{lem:empty-interior}
-Each set \(\mathcal F_{M,N,k}\) has empty interior.
+\begin{lemma}\label{lem:dense-open}
+For every positive integer triple \(M,N,k\), the open set
+\(\operatorname{int}\mathcal O_{M,N,k}\) is dense.
 \end{lemma}
 
 \begin{proof}
 Let an open ball in \(C([-1,1];\R)\) be given.
-By polynomial density, it contains a polynomial \(h\).
-Choose \(\varepsilon>0\) such that
-\[
- h+\varepsilon g
-\]
-belongs to the ball whenever \(\norm{g}_\infty\le1\).
+By polynomial approximation, it contains a polynomial \(h\).
+Choose \(\varepsilon>0\) so that \(h+\varepsilon g\) belongs to
+the ball whenever \(\norm{g}_\infty\le1\).
 Apply Proposition~\ref{prop:finite} with
 \[
- H>\max\left\{1,\frac{M+\norm{h}_\infty}{\varepsilon}\right\},
+ H>\max\left\{1,\frac{M+1+\norm{h}_\infty}{\varepsilon}\right\},
  \qquad \delta=\frac1k,
 \]
-and require all its indices to be at least \(N\) and large enough
+requiring all selected indices to be at least \(N\) and large enough
 that \(n+r_n\ge\deg h\).
-Let \(g\) be the resulting function, and put \(f=h+\varepsilon g\).
-
-For every polynomial \(p_n\) interpolating \(f\) at a selected row,
+Let \(g\) be the resulting function and set \(f=h+\varepsilon g\).
+For any admissible interpolant \(p_n\) of \(f\) on a selected row,
 \[
  q_n=\frac{p_n-h}{\varepsilon}
 \]
-has degree at most \(n+r_n\) and interpolates \(g\) on \(X_n\).
-Moreover, \(|p_n|\le M\) implies \(|q_n|<H\).
-Proposition~\ref{prop:finite} therefore excludes a common set of
-measure at least \(1/k\) on which all the selected \(p_n\) are
-bounded by \(M\).
-Thus \(f\notin\mathcal F_{M,N,k}\), proving that this set contains
-no open ball.
+is an admissible interpolant of \(g\), and \(|p_n|\le M+1\)
+implies \(|q_n|<H\). Hence \(f\in\mathcal O_{M+1,N,k}\).
+Lemma~\ref{lem:stability} puts \(f\) in
+\(\operatorname{int}\mathcal O_{M,N,k}\), as required.
 \end{proof}
 
 \begin{proof}[Proof of Theorem~\ref{thm:main}]
-By Lemmas~\ref{lem:closed} and \ref{lem:empty-interior} and the Baire
-category theorem, choose
+By Lemma~\ref{lem:dense-open} and the Baire category theorem, choose
 \[
- f\notin\bigcup_{M,N,k\ge1}\mathcal F_{M,N,k}.
+ f\in\bigcap_{M,N,k\ge1}\operatorname{int}\mathcal O_{M,N,k}.
 \]
-Suppose that an admissible interpolation sequence \((p_n)\) satisfied
-\(\limsup_{n\to\infty}|p_n(x)|<\infty\) for \(x\) in a set of positive
-measure.
-The identity
+Fix any admissible interpolation sequence \((p_n)\).
+For every \(M,N,k\), the common tail low set
 \[
- \{x:\limsup_{n\to\infty}|p_n(x)|<\infty\}
- =
- \bigcup_{M,N\ge1}\bigcap_{n\ge N}\{x:|p_n(x)|\le M\}
+ E_{M,N}=\bigcap_{n\ge N}\{x:|p_n(x)|\le M\}
 \]
-would imply that one of the common low sets on the right has
-positive measure, and therefore measure at least \(1/k\) for some
-integer \(k\). This would put \(f\) in \(\mathcal F_{M,N,k}\),
-a contradiction. Equation~\eqref{eq:divergence} follows.
+is contained in the finite common low set supplied by
+\(f\in\mathcal O_{M,N,k}\). Thus \(|E_{M,N}|<1/k\) for every
+\(k\), and \(|E_{M,N}|=0\).
+Outside the null set \(\bigcup_{M,N\ge1}E_{M,N}\), every tail
+of \((|p_n(x)|)\) exceeds every positive integer threshold.
+This proves \eqref{eq:divergence}.
 \end{proof}
 
 \section*{AI tool disclosure}
@@ -1239,6 +1217,9 @@ Building on notes from that round, GPT-6 Astra connected the
 external-field model to weighted polynomial spaces through
 Christoffel--Darboux kernel asymptotics and localization, and developed
 the finite construction used to combine data from multiple rows.
+
+The Lean formalization and the finite-perturbation category argument in
+Section~\ref{sec:baire} were developed with OpenAI Codex (GPT-6).
 
 The author checked the final arguments and the external results on which
 they depend against the cited sources, and is solely responsible for the

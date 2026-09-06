@@ -79,9 +79,10 @@ Main external inputs: Kriecherbauer–Schubert–Schüler–Venker,
 
 ## Lean formalization
 
-The Lean project verifies the sign-change argument and the finite construction
-and Baire argument, conditional on the local amplification conclusion of Section 6.
-The analytic derivation of that input remains in the manuscript. See
+The Lean project verifies the sign-change argument, elementary identities for
+the field and density in Lemma 4, and the finite construction and Baire argument.
+The final theorem assumes the local amplification conclusion of Section 6;
+its analytic derivation remains in the manuscript. See
 [the exact statement and proof correspondence](FORMALIZATION.md).
 
 ## AI tool disclosure
@@ -95,7 +96,8 @@ and developed the finite construction that combines data from multiple rows. The
 checked the final arguments and the external results they depend on against the cited
 sources, and is solely responsible for the mathematical content.
 
-The Lean formalization was developed with OpenAI Codex (GPT-6).
+The Lean formalization and the finite-perturbation category argument in
+Section 8 were developed with OpenAI Codex (GPT-6).
 
 ## Citation
 
