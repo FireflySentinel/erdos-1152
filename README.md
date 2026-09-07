@@ -11,8 +11,8 @@ With [Elan](https://github.com/leanprover/elan) installed, run from the reposito
 ```sh
 lake exe cache get
 lake build
-lake env lean checks/Check.lean
-LEAN_NUM_THREADS=2 lake env leanchecker Erdos1152
+lake test
+LEAN_NUM_THREADS=2 lake env leanchecker -v Erdos1152
 ```
 
 ## Exact statement
@@ -22,8 +22,11 @@ everywhere unboundedness from the local amplification conclusion of Section 6, a
 `finiteAmplification_of_localAmplification` gives the finite construction and category
 argument.
 
-The analytic derivation of the local amplification conclusion is outside this
-formalization.
+This is a partial formalization: `LocalAmplification` is a conclusion of this
+manuscript, and its analytic derivation remains outside the formalization.
+[VERIFICATION.md](VERIFICATION.md) separates the published inputs from the
+remaining applications. [Statement.lean](checks/Statement.lean) expands the full
+conditional statement, including every quantifier of the local input.
 
 ## Proof correspondence
 
@@ -31,6 +34,7 @@ formalization.
 |---|---|
 | Lemma 3, intervals surviving a degree-bounded correction | [Intervals.lean](Erdos1152/Intervals.lean), `alternating_interval_bound` |
 | Lemma 4, equilibrium density and the scalar integral | [EquilibriumDensity.lean](Erdos1152/EquilibriumDensity.lean), [CauchyIntegral.lean](Erdos1152/CauchyIntegral.lean) |
+| Section 6.1, factorization and Remez amplification from a cardinal-polynomial growth estimate | [RemezAmplification.lean](Erdos1152/RemezAmplification.lean), `cardinal_factorization`, `eventually_cardinal_amplification_of_measure_convergence` |
 | Proposition 9, the finite construction | [Main.lean](Erdos1152/Main.lean), `finiteAmplification_of_localAmplification` |
 | Section 8, Baire and the almost-everywhere conclusion | [Main.lean](Erdos1152/Main.lean), `ae_limsup_eq_top_of_localAmplification` |
 

@@ -47,3 +47,29 @@ import Erdos1152
 /-- info: 'Erdos1152.cauchy_integral_lt_artanh' depends on axioms: [propext, Classical.choice, Quot.sound] -/
 #guard_msgs in
 #print axioms Erdos1152.cauchy_integral_lt_artanh
+
+/-- info: 'Erdos1152.cardinal_factorization' depends on axioms: [propext, Classical.choice, Quot.sound] -/
+#guard_msgs in
+#print axioms Erdos1152.cardinal_factorization
+
+/-- info: 'Erdos1152.low_set_measure_lt_of_remez' depends on axioms: [propext, Classical.choice, Quot.sound] -/
+#guard_msgs in
+#print axioms Erdos1152.low_set_measure_lt_of_remez
+
+/-- info: 'Erdos1152.eventually_remez_factor_lt_one' depends on axioms: [propext, Classical.choice, Quot.sound] -/
+#guard_msgs in
+#print axioms Erdos1152.eventually_remez_factor_lt_one
+
+/-- info: 'Erdos1152.eventually_cardinal_amplification' depends on axioms: [propext, Classical.choice, Quot.sound] -/
+#guard_msgs in
+#print axioms Erdos1152.eventually_cardinal_amplification
+
+/-- info: 'Erdos1152.remezInequality_of_chebyshev' depends on axioms: [propext, Classical.choice, Quot.sound] -/
+#guard_msgs in
+#print axioms Erdos1152.remezInequality_of_chebyshev
+
+/-- info: 'Erdos1152.eventually_cardinal_amplification_of_measure_convergence' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound] -/
+#guard_msgs in
+#print axioms Erdos1152.eventually_cardinal_amplification_of_measure_convergence
