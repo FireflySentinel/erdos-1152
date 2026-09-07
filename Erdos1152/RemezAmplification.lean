@@ -153,14 +153,15 @@ theorem eventually_remez_factor_lt_one (d : ℕ → ℕ) (H C η : ℝ)
 /-- Section 6.1 after the potential-theoretic growth estimate: every admissible
 interpolant is large on all but an arbitrarily small measure of `E`. -/
 theorem eventually_cardinal_amplification (hR : RemezChebyshevInequality)
+    (rows : ℕ → ℕ) (hrows : Tendsto rows atTop atTop)
     (Y : ℕ → Finset ℝ) (z : ℕ → ℝ) (d : ℕ → ℕ) (E : ℕ → Set ℝ)
     (hzY : ∀ n, z n ∈ Y n) (hz : ∀ n, z n ∈ Icc (-1) 1)
     (hE : ∀ n, MeasurableSet (E n)) (hEsub : ∀ n, E n ⊆ Icc (-1) 1)
     (H η μ : ℝ) (hH : 0 < H) (hη : 0 < η) (hμ : 0 < μ) (hμ2 : μ ≤ 2)
     (hd : Tendsto (fun n => (d n : ℝ) / (n + 1 : ℝ)) atTop (𝓝 0))
     (hgrowth : ∀ᶠ n : ℕ in atTop, ∀ x ∈ E n,
-      Real.exp (η * (n + 1)) ≤ |(cardinalPolynomial (Y n) (z n)).eval x|) :
-    ∀ᶠ n : ℕ in atTop, ∀ p : ℝ[X], p.natDegree ≤ (Y n).card + d n →
+      Real.exp (η * (rows n + 1)) ≤ |(cardinalPolynomial (Y n) (z n)).eval x|) :
+    ∀ᶠ n : ℕ in atTop, ∀ p : ℝ[X], p.natDegree ≤ (Y n).card + d (rows n) →
       p.eval (z n) = 1 → (∀ y ∈ (Y n).erase (z n), p.eval y = 0) →
       volume.real {x ∈ E n | |p.eval x| ≤ H} < μ := by
   have ht : Tendsto (fun n : ℕ => (n + 1 : ℝ)) atTop atTop :=
@@ -169,11 +170,11 @@ theorem eventually_cardinal_amplification (hR : RemezChebyshevInequality)
     simpa [add_div, one_div] using hd.add (tendsto_inv_atTop_zero.comp ht)
   have hsmall := eventually_remez_factor_lt_one (fun n => d n + 1) H (8 / μ) η
     hH (by positivity) hη hd1
-  filter_upwards [hgrowth, hsmall] with n hgn hsn
+  filter_upwards [hgrowth, hrows.eventually hsmall] with n hgn hsn
   intro p hp hpz hpzero
-  obtain ⟨T, hfactor, hTz, hTd⟩ := cardinal_factorization (Y n) (z n) (hzY n) p (d n) hp hpz hpzero
+  obtain ⟨T, hfactor, hTz, hTd⟩ := cardinal_factorization (Y n) (z n) (hzY n) p (d (rows n)) hp hpz hpzero
   rw [hfactor]
-  apply low_set_measure_lt_of_remez (remezInequality_of_chebyshev hR) _ T (E n) (z n) H (Real.exp (η * (n + 1))) μ
+  apply low_set_measure_lt_of_remez (remezInequality_of_chebyshev hR) _ T (E n) (z n) H (Real.exp (η * (rows n + 1))) μ
     (hE n) (hEsub n) (hz n) hTz hH.le (Real.exp_pos _) hμ hgn
   have hC : 1 ≤ 8 / μ := (le_div_iff₀ hμ).mpr (by linarith)
   exact lt_of_le_of_lt (mul_le_mul_of_nonneg_left (pow_le_pow_right₀ hC hTd)
@@ -183,6 +184,7 @@ theorem eventually_cardinal_amplification (hR : RemezChebyshevInequality)
 to zero, so do the low-set measures, uniformly over all corrected interpolants. -/
 theorem eventually_cardinal_amplification_of_measure_convergence
     (hR : RemezChebyshevInequality)
+    (rows : ℕ → ℕ) (hrows : Tendsto rows atTop atTop)
     (Y : ℕ → Finset ℝ) (z : ℕ → ℝ) (d : ℕ → ℕ) (A : Set ℝ) (E : ℕ → Set ℝ)
     (hzY : ∀ n, z n ∈ Y n) (hz : ∀ n, z n ∈ Icc (-1) 1)
     (hAsub : A ⊆ Icc (-1) 1)
@@ -191,14 +193,14 @@ theorem eventually_cardinal_amplification_of_measure_convergence
     (hd : Tendsto (fun n => (d n : ℝ) / (n + 1 : ℝ)) atTop (𝓝 0))
     (hbad : Tendsto (fun n => volume.real (A \ E n)) atTop (𝓝 0))
     (hgrowth : ∀ᶠ n : ℕ in atTop, ∀ x ∈ E n,
-      Real.exp (η * (n + 1)) ≤ |(cardinalPolynomial (Y n) (z n)).eval x|)
+      Real.exp (η * (rows n + 1)) ≤ |(cardinalPolynomial (Y n) (z n)).eval x|)
     (μ : ℝ) (hμ : 0 < μ) :
-    ∀ᶠ n : ℕ in atTop, ∀ p : ℝ[X], p.natDegree ≤ (Y n).card + d n →
+    ∀ᶠ n : ℕ in atTop, ∀ p : ℝ[X], p.natDegree ≤ (Y n).card + d (rows n) →
       p.eval (z n) = 1 → (∀ y ∈ (Y n).erase (z n), p.eval y = 0) →
       volume.real {x ∈ A | |p.eval x| ≤ H} < μ := by
   let ε := min (μ / 2) 1
   have hε : 0 < ε := lt_min (by positivity) zero_lt_one
-  have he := eventually_cardinal_amplification hR Y z d E hzY hz hE
+  have he := eventually_cardinal_amplification hR rows hrows Y z d E hzY hz hE
     (fun n => (hEsub n).trans hAsub) H η ε hH hη hε
     ((min_le_right _ _).trans (by norm_num)) hd hgrowth
   filter_upwards [he, hbad.eventually (gt_mem_nhds (by positivity : (0 : ℝ) < μ / 2))]

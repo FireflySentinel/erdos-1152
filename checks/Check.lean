@@ -73,3 +73,23 @@ import Erdos1152
  Quot.sound] -/
 #guard_msgs in
 #print axioms Erdos1152.eventually_cardinal_amplification_of_measure_convergence
+
+/-- info: 'Erdos1152.localAmplification_of_above_minimal' depends on axioms: [propext, Classical.choice, Quot.sound] -/
+#guard_msgs (whitespace := lax) in
+#print axioms Erdos1152.localAmplification_of_above_minimal
+
+/-- info: 'Erdos1152.localIntervalData_of_cardinalGrowth' depends on axioms: [propext, Classical.choice, Quot.sound] -/
+#guard_msgs (whitespace := lax) in
+#print axioms Erdos1152.localIntervalData_of_cardinalGrowth
+
+/-- info: 'Erdos1152.ae_small_interval_complement' depends on axioms: [propext, Classical.choice, Quot.sound] -/
+#guard_msgs (whitespace := lax) in
+#print axioms Erdos1152.ae_small_interval_complement
+
+/-- info: 'Erdos1152.localAmplificationAbove_of_cardinalGrowthCover' depends on axioms: [propext, Classical.choice, Quot.sound] -/
+#guard_msgs (whitespace := lax) in
+#print axioms Erdos1152.localAmplificationAbove_of_cardinalGrowthCover
+
+/-- info: 'Erdos1152.ae_limsup_eq_top_of_cardinalGrowth_minimal' depends on axioms: [propext, Classical.choice, Quot.sound] -/
+#guard_msgs (whitespace := lax) in
+#print axioms Erdos1152.ae_limsup_eq_top_of_cardinalGrowth_minimal

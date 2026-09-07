@@ -1,23 +1,28 @@
 # Verification and scope
 
-The Lean development is partial. The main theorem assumes
-[`LocalAmplification`](Erdos1152/LocalData.lean), the local analytic conclusion
-obtained in Sections 4–6 of this manuscript. It has not been derived in Lean
-from the published analytic inputs.
+The Lean development is partial. Its main entry point now derives the local
+amplification conclusion from three separate inputs, with the above-minimum
+argument proved through the Remez and Lebesgue-density steps.
 
 ## Main statement
 
-[`ae_limsup_eq_top_of_localAmplification`](Erdos1152/Main.lean) proves that there
-is a continuous function for which every sequence of admissible interpolants
-is unbounded almost everywhere. The finite construction and the category
-argument are proved.
-[`checks/Statement.lean`](checks/Statement.lean) expands the local hypothesis
-and the final conclusion into the node maps, polynomial degrees, evaluations,
-Lebesgue measures, and quantifiers.
+[`ae_limsup_eq_top_of_cardinalGrowth_minimal`](Erdos1152/Main.lean) takes a node
+array, a sublinear excess degree `r`, a region `A`, and these inputs:
 
-Row `n` has `n + 1` nodes. The hypothesis `r(n) = o(n)` belongs to the missing
-analytic derivation of `LocalAmplification`; it is not needed for the conditional
-implication from that property to the final conclusion.
+* `RemezChebyshevInequality`, the classical published inequality.
+* `CardinalGrowthCover X A`: a countable family of regions covering `A` almost
+  everywhere, with the cardinal-polynomial growth estimate on each region.
+* `LocalAmplificationMinimal X r A`: the remaining local conclusion on the
+  complement of `A`.
+
+In Section 6, `A = {x : V(x) > m₀}`. Its complement inside the interval is the
+minimum-potential region. [`LocalRegions.lean`](Erdos1152/LocalRegions.lean)
+combines local amplification on the two regions by taking the smaller fraction.
+The earlier theorem with the whole `LocalAmplification` premise remains available.
+
+[`checks/Statement.lean`](checks/Statement.lean) expands all three inputs and the
+final conclusion. Row `n` has `n + 1` nodes, and `r(n)/(n+1) → 0` is now an
+explicit hypothesis used in the Remez argument.
 
 ## Section 6.1: the Remez application
 
@@ -35,9 +40,23 @@ classical input from its application:
 The external inequality is the standard Chebyshev form of
 [Remes (1936), p. 93, (3)–(4)](https://history-of-approximation-theory.com/fpapers/remezppr.pdf):
 `|p(z)| ≤ H T_degree(4 / |E| - 1)` for `z ∈ [-1,1]` and `|p| ≤ H` on a
-measurable set `E ⊆ [-1,1]` of positive measure. The exponential growth estimate
-for the cardinal polynomials is still a separate premise. The new lemmas do
-not assert the potential convergence needed to establish it.
+measurable set `E ⊆ [-1,1]` of positive measure.
+
+[`CardinalLocal.lean`](Erdos1152/CardinalLocal.lean) connects this deduction to the
+main theorem. At almost every point of each growth region, Lebesgue's density
+theorem supplies arbitrarily small intervals whose complement in that region
+occupies at most one quarter of the interval. The Remez bound makes the low-value
+set occupy less than another quarter. This gives `LocalIntervalData` with
+fraction `1/2`.
+
+The growth regions and the interval are fixed before choosing the finite set
+`S` of assigned nodes. Growth may hold along a row subsequence; its exponent
+uses the original row size. The proof counts the removed nodes and uses the
+correction budget `r(n) + S.card`. The countable cover lets one discard a single
+null set before assembling the above-minimum conclusion.
+
+The exponential growth estimate itself remains a premise. The potential
+convergence needed to establish it has not been formalized.
 
 ## Remaining analytic applications
 
@@ -54,8 +73,8 @@ Specifying the OU peak function by Fourier support would still require proving
 that the cited construction supplies that condition. Likewise the kernel
 estimates used here are consequences of KSSV, not verbatim statements of its
 theorems. These applications cannot be replaced by relabeling their outputs as
-published inputs. The current development therefore does not yet give a solution
-conditional only on published inputs under the
+published inputs. The cardinal-growth and minimum-region hypotheses remain manuscript inputs.
+The current development therefore does not yet give a solution conditional only on published inputs under the
 [Erdős Problems database's contribution rules](https://github.com/teorth/erdosproblems/blob/main/CONTRIBUTING.md).
 
 ## Reproduction
@@ -72,6 +91,6 @@ LEAN_NUM_THREADS=2 lake env leanchecker -v Erdos1152
 
 `lake test` checks the expanded statement and axiom dependencies. The guards
 require `propext`, `Classical.choice`, and `Quot.sound`; this list does not
-discharge theorem parameters such as `LocalAmplification` or the Remez inequality.
+discharge theorem parameters such as cardinal growth, minimum-region amplification, or the Remez inequality.
 The [workflow](.github/workflows/lean.yml) also replays the project declarations
-through the kernel. Tag `v0.2.0` records this partial formalization.
+through the kernel. Tag `v0.3.0` records this partial formalization.

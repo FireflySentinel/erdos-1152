@@ -17,16 +17,18 @@ LEAN_NUM_THREADS=2 lake env leanchecker -v Erdos1152
 
 ## Exact statement
 
-[`Erdos1152.ae_limsup_eq_top_of_localAmplification`](Erdos1152/Main.lean) deduces almost
-everywhere unboundedness from the local amplification conclusion of Section 6, and
-`finiteAmplification_of_localAmplification` gives the finite construction and category
-argument.
+[`Erdos1152.ae_limsup_eq_top_of_cardinalGrowth_minimal`](Erdos1152/Main.lean) proves
+almost everywhere unboundedness from Remez's inequality, sublinear excess degree,
+a countable cover by regions of cardinal-polynomial growth, and local amplification
+on the complementary region. In the manuscript these are the regions above the
+minimum potential and the minimum-potential set.
 
-This is a partial formalization: `LocalAmplification` is a conclusion of this
-manuscript, and its analytic derivation remains outside the formalization.
+This is a partial formalization. Cardinal growth is still an analytic input, as is
+the minimum-potential argument. The deduction from these inputs through Remez,
+Lebesgue density, the finite construction and Baire is proved.
 [VERIFICATION.md](VERIFICATION.md) separates the published inputs from the
 remaining applications. [Statement.lean](checks/Statement.lean) expands the full
-conditional statement, including every quantifier of the local input.
+conditional statement, including every quantifier of the three remaining inputs.
 
 ## Proof correspondence
 
@@ -35,6 +37,8 @@ conditional statement, including every quantifier of the local input.
 | Lemma 3, intervals surviving a degree-bounded correction | [Intervals.lean](Erdos1152/Intervals.lean), `alternating_interval_bound` |
 | Lemma 4, equilibrium density and the scalar integral | [EquilibriumDensity.lean](Erdos1152/EquilibriumDensity.lean), [CauchyIntegral.lean](Erdos1152/CauchyIntegral.lean) |
 | Section 6.1, factorization and Remez amplification from a cardinal-polynomial growth estimate | [RemezAmplification.lean](Erdos1152/RemezAmplification.lean), `cardinal_factorization`, `eventually_cardinal_amplification_of_measure_convergence` |
+| Section 6.1, density points and local interval data | [CardinalLocal.lean](Erdos1152/CardinalLocal.lean), `localAmplificationAbove_of_cardinalGrowthCover` |
+| Combining the above-minimum and minimum-potential regions | [LocalRegions.lean](Erdos1152/LocalRegions.lean), `localAmplification_of_above_minimal` |
 | Proposition 9, the finite construction | [Main.lean](Erdos1152/Main.lean), `finiteAmplification_of_localAmplification` |
 | Section 8, Baire and the almost-everywhere conclusion | [Main.lean](Erdos1152/Main.lean), `ae_limsup_eq_top_of_localAmplification` |
 
