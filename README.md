@@ -1,8 +1,12 @@
-# Erdős Problem #1152: almost everywhere divergence of polynomial interpolation with sublinear excess degree
+# Erdős Problem #1152: almost everywhere divergence with sublinear excess degree
 
-Preprint claiming a proof of the divergence assertion in
-[Erdős Problem #1152](https://www.erdosproblems.com/1152), in the stronger form of almost
-everywhere unboundedness.
+Lean 4 formalization for [Erdős Problem #1152](https://www.erdosproblems.com/1152),
+in the stronger form of almost everywhere unboundedness.
+[`Erdos1152.ae_limsup_eq_top_of_cardinalGrowth_minimal`](Erdos1152/Main.lean) proves the
+conclusion from Remez's inequality, sublinear excess degree, and two analytic inputs that
+remain hypotheses: cardinal-polynomial growth and the minimum-potential argument.
+[VERIFICATION.md](VERIFICATION.md) separates the published inputs from the remaining
+applications.
 
 ## Build and check
 
@@ -14,21 +18,6 @@ lake build
 lake test
 LEAN_NUM_THREADS=2 lake env leanchecker -v Erdos1152
 ```
-
-## Exact statement
-
-[`Erdos1152.ae_limsup_eq_top_of_cardinalGrowth_minimal`](Erdos1152/Main.lean) proves
-almost everywhere unboundedness from Remez's inequality, sublinear excess degree,
-a countable cover by regions of cardinal-polynomial growth, and local amplification
-on the complementary region. In the manuscript these are the regions above the
-minimum potential and the minimum-potential set.
-
-This is a partial formalization. Cardinal growth is still an analytic input, as is
-the minimum-potential argument. The deduction from these inputs through Remez,
-Lebesgue density, the finite construction and Baire is proved.
-[VERIFICATION.md](VERIFICATION.md) separates the published inputs from the
-remaining applications. [Statement.lean](checks/Statement.lean) expands the full
-conditional statement, including every quantifier of the three remaining inputs.
 
 ## Proof correspondence
 
@@ -42,16 +31,15 @@ conditional statement, including every quantifier of the three remaining inputs.
 | Proposition 9, the finite construction | [Main.lean](Erdos1152/Main.lean), `finiteAmplification_of_localAmplification` |
 | Section 8, Baire and the almost-everywhere conclusion | [Main.lean](Erdos1152/Main.lean), `ae_limsup_eq_top_of_localAmplification` |
 
+[Statement.lean](checks/Statement.lean) expands the full conditional statement,
+including every quantifier of the remaining inputs.
+
 ## Use of generative AI
 
-AI tools were used substantially in the development of this work. An earlier round with
-GPT-5.6 developed the sign-change mechanism, the Remez argument on regions of higher
-logarithmic potential, and the local external-field model near the minimum-potential set.
-Building on notes from that round, GPT-6 Astra connected the external-field model to
-weighted polynomial spaces through Christoffel–Darboux kernel asymptotics and localization,
-and developed the finite construction that combines data from multiple rows. The author
-checked the final arguments and the external results they depend on against the cited
-sources, and is solely responsible for the mathematical content.
-
-The Lean formalization and the finite-perturbation category argument in
-Section 8 were developed with OpenAI Codex (GPT-6).
+An earlier round with GPT-5.6 developed the sign-change mechanism, the Remez argument on
+regions of higher logarithmic potential, and the local external-field model near the
+minimum-potential set. Building on those notes, GPT-6 Astra connected the model to
+weighted polynomial spaces through Christoffel–Darboux kernel asymptotics and developed
+the finite construction combining data from multiple rows.
+The Lean formalization was generated with OpenAI Codex (GPT-6).
+The author checked the arguments against the cited sources and is responsible for the content.
