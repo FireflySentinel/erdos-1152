@@ -6,7 +6,7 @@ in the stronger form of almost everywhere unboundedness.
 conclusion from Remez's inequality, sublinear excess degree, and two analytic inputs that
 remain hypotheses: cardinal-polynomial growth and the minimum-potential argument.
 [VERIFICATION.md](VERIFICATION.md) separates the published inputs from the remaining
-applications.
+applications. The [manuscript](paper/PROOF.pdf) contains the full argument.
 
 ## Build and check
 
@@ -31,15 +31,12 @@ LEAN_NUM_THREADS=2 lake env leanchecker -v Erdos1152
 | Proposition 9, the finite construction | [Main.lean](Erdos1152/Main.lean), `finiteAmplification_of_localAmplification` |
 | Section 8, Baire and the almost-everywhere conclusion | [Main.lean](Erdos1152/Main.lean), `ae_limsup_eq_top_of_localAmplification` |
 
-[Statement.lean](checks/Statement.lean) expands the full conditional statement,
-including every quantifier of the remaining inputs.
+[Statement.lean](checks/Statement.lean) expands the conditional statement and its three inputs.
 
 ## Use of generative AI
 
-An earlier round with GPT-5.6 developed the sign-change mechanism, the Remez argument on
-regions of higher logarithmic potential, and the local external-field model near the
-minimum-potential set. Building on those notes, GPT-6 Astra connected the model to
-weighted polynomial spaces through Christoffel–Darboux kernel asymptotics and developed
-the finite construction combining data from multiple rows.
-The Lean formalization was generated with OpenAI Codex (GPT-6).
-The author checked the arguments against the cited sources and is responsible for the content.
+The author used GPT-5.6 and GPT-6 Astra in developing the arguments involving
+polynomial corrections, local external fields, weighted kernels and finite
+interpolation, and OpenAI Codex (GPT-6) for the Baire category argument and the Lean
+formalization. The author checked the arguments and their use of the cited results
+and is responsible for the content.
