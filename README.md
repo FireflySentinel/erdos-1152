@@ -23,12 +23,12 @@ LEAN_NUM_THREADS=2 lake env leanchecker -v Erdos1152
 
 | Manuscript | Lean source |
 |---|---|
-| Lemma 3, intervals surviving a degree-bounded correction | [Intervals.lean](Erdos1152/Intervals.lean), `alternating_interval_bound` |
+| Lemma 3, the sign-change bound for polynomial corrections | [Intervals.lean](Erdos1152/Intervals.lean), `alternating_interval_bound` |
 | Lemma 4, equilibrium density and the scalar integral | [EquilibriumDensity.lean](Erdos1152/EquilibriumDensity.lean), [CauchyIntegral.lean](Erdos1152/CauchyIntegral.lean) |
 | Section 6.1, factorization and Remez amplification from a cardinal-polynomial growth estimate | [RemezAmplification.lean](Erdos1152/RemezAmplification.lean), `cardinal_factorization`, `eventually_cardinal_amplification_of_measure_convergence` |
 | Section 6.1, density points and local interval data | [CardinalLocal.lean](Erdos1152/CardinalLocal.lean), `localAmplificationAbove_of_cardinalGrowthCover` |
 | Combining the above-minimum and minimum-potential regions | [LocalRegions.lean](Erdos1152/LocalRegions.lean), `localAmplification_of_above_minimal` |
-| Proposition 9, the finite construction | [Main.lean](Erdos1152/Main.lean), `finiteAmplification_of_localAmplification` |
+| Proposition 11, the finite construction | [Main.lean](Erdos1152/Main.lean), `finiteAmplification_of_localAmplification` |
 | Section 8, Baire and the almost-everywhere conclusion | [Main.lean](Erdos1152/Main.lean), `ae_limsup_eq_top_of_localAmplification` |
 
 [Statement.lean](checks/Statement.lean) expands the conditional statement and its three inputs.

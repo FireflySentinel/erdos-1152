@@ -44,7 +44,7 @@ theorem exists_small_low_stage (X : NodeArray) (r : ℕ → ℕ) (H c δ : ℝ) 
   · exact h
   · linarith
 
-/-- Proposition 9 from the interval amplification statement, with compatible data on all rows. -/
+/-- Proposition 11 from the interval amplification statement, with compatible data on all rows. -/
 theorem finiteObstruction_of_intervalAmplification (X : NodeArray) (r : ℕ → ℕ)
     (H c : ℝ) (N : ℕ) (hc : 0 < c) (hc1 : c ≤ 1)
     (hamp : IntervalAmplification X r H c N) (δ : ℝ≥0∞) (hδ : 0 < δ) :

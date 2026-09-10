@@ -1,6 +1,6 @@
 import Mathlib
 
-/-! Finite disjoint subfamilies of the local intervals used in Proposition 9. -/
+/-! Finite disjoint subfamilies of the local intervals used in Proposition 11. -/
 
 open Set MeasureTheory Metric Filter
 open scoped ENNReal

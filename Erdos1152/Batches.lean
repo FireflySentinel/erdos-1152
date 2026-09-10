@@ -1,7 +1,7 @@
 import Erdos1152.Stage
 import Erdos1152.Contraction
 
-/-! The finite construction for common low sets in Proposition 9. -/
+/-! The finite construction for common low sets in Proposition 11. -/
 
 open Set MeasureTheory Polynomial
 

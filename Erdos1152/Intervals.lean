@@ -27,7 +27,7 @@ private theorem correction_sign {a b q H σ : ℝ} (ha : a ≠ 0)
   have : (σ * (b / a)) * a ^ 2 > 0 := mul_pos hsgn (sq_pos_of_ne_zero ha)
   nlinarith
 
-/-- Lemma 3: at least `(K - d - 1) / 2` intervals remain uniformly above `H`.
+/-- The sign-change bound in Lemma 3: at least `(K - d - 1) / 2` intervals remain uniformly above `H`.
 The conclusion is written without division or truncated natural subtraction. -/
 theorem alternating_interval_bound (Y : Finset ℝ) (b p q : ℝ[X])
     (K d : ℕ) (a c : ℕ → ℝ) (H : ℝ)

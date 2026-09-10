@@ -29,7 +29,7 @@ def FiniteObstruction (X : NodeArray) (r : ℕ → ℕ) (H : ℝ) (δ : ℝ≥0�
     ∀ p : ℕ → ℝ[X], (∀ n ∈ s, X.Interpolates r f n (p n)) →
       volume (commonLowSet s p H) < δ
 
-/-- Proposition 9, stated separately from the analytic hypotheses used to prove it. -/
+/-- Proposition 11, stated separately from the analytic hypotheses used to prove it. -/
 def FiniteAmplification (X : NodeArray) (r : ℕ → ℕ) : Prop :=
   ∀ H : ℝ, 1 < H → ∀ δ : ℝ≥0∞, 0 < δ → ∀ N : ℕ,
     ∃ g : ContinuousFunction, ‖g‖ ≤ 1 ∧ FiniteObstruction X r H δ N g
